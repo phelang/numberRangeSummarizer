@@ -14,11 +14,17 @@ import java.util.Collection;
 
 public class NumberRangeSummarizerImpl implements NumberRangeSummarizer {
 
-    public Collection<Integer> collect(String input) {
+    public final Collection<Integer> collect(String input) {
         return null;
     }
 
-    public String summarizeCollection(Collection<Integer> input) {
+    public final String summarizeCollection(Collection<Integer> input) {
         return null;
     }
+
+    public final String[] splitString(String string){
+
+        return string.split("[,]");
+    }
+
 }
