@@ -2,7 +2,9 @@ package com.test.numberRangeSummarizer.summarizer.impl;
 
 import com.test.numberRangeSummarizer.summarizer.NumberRangeSummarizer;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 /**
  * @author Qhu
@@ -14,17 +16,28 @@ import java.util.Collection;
 
 public class NumberRangeSummarizerImpl implements NumberRangeSummarizer {
 
+    @Override
     public final Collection<Integer> collect(String input) {
-        return null;
+
+        return Arrays.stream(input.split("[,]"))
+                .filter(val -> val.matches("^[0-9]*$"))
+                .map(Integer::parseInt)
+                .sorted()
+                .collect(Collectors.toList());
     }
 
+    @Override
     public final String summarizeCollection(Collection<Integer> input) {
-        return null;
+        return "Hello World";
     }
 
-    public final String[] splitString(String string){
+    /* MAYBE OR NOT - Unnecessary repition create a separate file implementation for utils */
+    private String[] splitInput(String input) {
 
-        return string.split("[,]");
+        return input.split("[,]");
     }
 
+    private boolean validate(String str) {
+        return str.matches("^[0-9]*$");
+    }
 }
