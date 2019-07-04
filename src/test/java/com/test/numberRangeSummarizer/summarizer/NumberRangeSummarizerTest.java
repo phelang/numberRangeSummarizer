@@ -34,4 +34,14 @@ public class NumberRangeSummarizerTest {
         Collection<Integer> numbers = numberRangeSummarizer.collect("1,3,6,7,8,12,13,14,15,21,22,23,24,31");
          Assert.assertFalse(Boolean.parseBoolean(Arrays.stream(numbers.toArray()).unordered().toString()));
     }
+
+    @Test
+    public void testThatNumberAreSummarized() {
+        String inputNumbers = "1,3,6,7,8,12,13,14,15,21,22,23,24,31";
+        String expectedSummary = "1,3,6-8,12-15,21-24,31";
+
+        Collection<Integer> numbers = numberRangeSummarizer.collect(inputNumbers);
+
+        Assert.assertEquals(numberRangeSummarizer.summarizeCollection(numbers), expectedSummary);
+    }
 }
