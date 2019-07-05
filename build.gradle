@@ -15,5 +15,14 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-dependencies:2.0.5.RELEASE'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// testCompile group: 'org.springframework', name: 'spring-test', version: '3.2.0.RELEASE'
+
+	apply plugin: 'announce'
+	compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.5.RELEASE'
+	compile "org.springframework.boot:spring-boot-starter-tomcat"
+	
+
 }
