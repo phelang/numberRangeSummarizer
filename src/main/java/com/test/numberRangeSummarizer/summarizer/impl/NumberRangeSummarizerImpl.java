@@ -1,6 +1,7 @@
 package com.test.numberRangeSummarizer.summarizer.impl;
 
 import com.test.numberRangeSummarizer.summarizer.NumberRangeSummarizer;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
  *
  */
 
+@Component
 public class NumberRangeSummarizerImpl implements NumberRangeSummarizer {
 
     private int indexIncrement = 0;
@@ -58,16 +60,5 @@ public class NumberRangeSummarizerImpl implements NumberRangeSummarizer {
             str += "," + list.get(i);
         }
         return (i <= list.size() - 2 ? summarize(list, i, str) : str) ;
-    }
-
-
-    /* MAYBE OR NOT - Unnecessary repition create a separate file implementation for utils */
-    private String[] splitInput(String input) {
-
-        return input.split("[,]");
-    }
-
-    private boolean validate(String str) {
-        return str.matches("^[0-9]*$");
     }
 }
